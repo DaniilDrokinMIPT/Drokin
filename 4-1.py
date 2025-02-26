@@ -24,6 +24,8 @@ try:
                 print("Negative")
             elif num > 255:
                 print("Limit")
+            elif int(num) != num:
+                print("It is float")
             else:
                 num2 = dec2bin(num)
                 GPIO.output(dac, num2)
