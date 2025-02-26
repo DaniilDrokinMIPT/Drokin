@@ -19,6 +19,11 @@ try:
             num2 = dec2bin(num)
             GPIO.output(dac, num2)
             time.sleep(p / 512)
+        for num in range(255, -1, -1):
+            num2 = dec2bin(num)
+            GPIO.output(dac, num2)
+            time.sleep(p / 512)
+        
 finally:
     GPIO.output(dac, 0)
     GPIO.cleanup()
