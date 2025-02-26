@@ -11,7 +11,7 @@ pwm = GPIO.PWM(pin, 100)
 pwm.start(0)
 try:
     while True:
-        num = input()
+        num = input('введите')
         if num.lower() == 'q':
             print('Interrupt')
             break
@@ -27,6 +27,7 @@ try:
         except ValueError:   
             print('No num')
 finally:
+    GPIO.output(21, 0)
     pwm.stop()
     GPIO.cleanup()
 

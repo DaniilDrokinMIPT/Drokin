@@ -13,21 +13,19 @@ def dec2bin(val):
 
 try:
     while True:
-        num = input()
+        num = input('введите целое число')
         if num == 'q':
             print("Interrupt")
             break
-
         try:
-            num = int(num)
-            if num < 0:
+            if int(num) < 0:
                 print("Negative")
-            elif num > 255:
+            elif int(num) > 255:
                 print("Limit")
-            elif int(num) != num:
+            elif '.' in num:
                 print("It is float")
             else:
-                num2 = dec2bin(num)
+                num2 = dec2bin(int(num))
                 GPIO.output(dac, num2)
                 u = num2 * 3.3 / 255
                 print(u)
